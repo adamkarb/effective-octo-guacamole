@@ -1,5 +1,7 @@
 ﻿using System;
-namespace WebApi.Services
+using WebApi.Application;
+
+namespace WebApi.Infrastructure
 {
     public class DbConnectionService : IDbConnectionService
     {

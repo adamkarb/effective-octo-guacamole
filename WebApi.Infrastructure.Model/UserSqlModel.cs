@@ -1,7 +1,8 @@
 ﻿using System;
-namespace WebApi.Models
+
+namespace WebApi.Infrastructure.Model
 {
-    public class User
+    public class UserSqlModel
     {
         public string UserId { get; set; }
 

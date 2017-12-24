@@ -1,7 +1,7 @@
 ﻿using System;
-namespace WebApi.Models.Dto
+namespace WebApi.Domain.Model
 {
-    public class UserDto
+    public class User
     {
         public string UserId { get; set; }
 
@@ -10,5 +10,7 @@ namespace WebApi.Models.Dto
         public string Lastname { get; set; }
 
         public string Email { get; set; }
+
+        public string Password { get; set; }
     }
 }

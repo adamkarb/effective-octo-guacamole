@@ -1,8 +1,7 @@
 ﻿using System;
-
-namespace WebApi.Models.Sql
+namespace WebApi.Application.Dto
 {
-    public class UserSql
+    public class UserDto
     {
         public string UserId { get; set; }
 
@@ -11,7 +10,5 @@ namespace WebApi.Models.Sql
         public string Lastname { get; set; }
 
         public string Email { get; set; }
-
-        public string Password { get; set; }
     }
 }

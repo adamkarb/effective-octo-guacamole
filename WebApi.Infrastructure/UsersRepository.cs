@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Threading.Tasks;
+using WebApi.Application;
+using WebApi.Domain.Model;
 
-namespace WebApi.Repository
+namespace WebApi.Infrastructure
 {
     public class UsersRepository : IUsersRepository
     {
@@ -13,7 +15,7 @@ namespace WebApi.Repository
             _DbConnection = DbConnection;
         }
 
-        public async Task<UserDto> GetUserById(string id)
+        public async Task<User> GetUserById(string id)
         {
             // return user with id
         }

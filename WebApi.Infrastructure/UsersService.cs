@@ -1,7 +1,10 @@
 ﻿using System;
-using WebApi.Repository;
+using System.Threading.Tasks;
+using WebApi.Application;
+using WebApi.Domain.Model;
+using WebApi.Infrastructure;
 
-namespace WebApi.Services
+namespace WebApi.Applicaiton
 {
     public class UsersService : IUsersService
     {
@@ -12,7 +15,7 @@ namespace WebApi.Services
             _UsersRepository = usersRepository;
         }
 
-        public async Task<UserDto> GetUserById(string id)
+        public async Task<User> GetUserById(string id)
         {
             return await _UsersRepository.GetUserById(id);
             // chain format methods

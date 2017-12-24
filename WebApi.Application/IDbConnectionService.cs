@@ -1,5 +1,5 @@
 ﻿using System;
-namespace WebApi.Services
+namespace WebApi.Application
 {
     public interface IDbConnectionService
     {
