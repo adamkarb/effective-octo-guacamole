@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Infrastructure.Model;
+using WebApi.Controllers;
+using WebApi.Domain.Model;
 
 namespace WebApi.Controllers
 {

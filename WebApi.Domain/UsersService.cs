@@ -4,7 +4,7 @@ using WebApi.Application;
 using WebApi.Domain.Model;
 using WebApi.Infrastructure;
 
-namespace WebApi.Applicaiton
+namespace WebApi.Domain
 {
     public class UsersService : IUsersService
     {

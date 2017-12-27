@@ -1,8 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WebApi.Application\WebApi.Application.csproj" />
+    <ProjectReference Include="..\WebApi.Infrastructure\WebApi.Infrastructure.csproj" />
+  </ItemGroup>
 </Project>

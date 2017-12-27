@@ -1,5 +1,4 @@
-﻿using System;
-namespace WebApi.Domain.Model
+﻿namespace WebApi.Domain.Model
 {
     public class User
     {
