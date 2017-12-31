@@ -5,13 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
     <PackageReference Include="Dapper" Version="1.50.4" />
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,5 +22,7 @@
     <ProjectReference Include="..\WebApi.Domain.Model\WebApi.Domain.Model.csproj" />
     <ProjectReference Include="..\WebApi.Infrastructure\WebApi.Infrastructure.csproj" />
     <ProjectReference Include="..\WebApi.Domain\WebApi.Domain.csproj" />
+    <ProjectReference Include="..\WebApi.configuration\WebApi.configuration.csproj" />
+    <ProjectReference Include="..\WebApi.Infrastructure.Model\WebApi.Infrastructure.Model.csproj" />
   </ItemGroup>
 </Project>

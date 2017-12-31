@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Domain.Model
 {
-    public class User
+    public class User : BaseObject
     {
         public string UserId { get; set; }
 

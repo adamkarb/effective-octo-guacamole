@@ -3,21 +3,42 @@ using System.Data;
 using System.Threading.Tasks;
 using WebApi.Application;
 using WebApi.Domain.Model;
+using Npgsql;
+using Dapper;
+using Microsoft.Extensions.Configuration;
+using WebApi.Infrastructure.Model;
 
 namespace WebApi.Infrastructure
 {
     public class UsersRepository : IUsersRepository
     {
-        private readonly IDbConnection _DbConnection;
+        private string connectionString;
 
-        public UsersRepository(IDbConnection DbConnection)
+        public UsersRepository(IConfiguration configuration)
         {
-            _DbConnection = DbConnection;
+            connectionString = configuration.GetValue<string>("ConnectionStrings:DefaultSqlConnection");
         }
 
-        public async Task<User> GetUserById(string id)
+        internal IDbConnection Connection
         {
-            // return user with id
+            get
+            {
+                return new NpgsqlConnection(connectionString);
+            }
+        }
+
+        public Task<UserSqlModel> GetUserById(string id)
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                var query = "SELECT * FROM Users WHERE UserID=@userId";
+                var parameters = new
+                {
+                    userId = id
+                };
+                dbConnection.Open();
+                return dbConnection.QuerySingleOrDefaultAsync<UserSqlModel>(query, parameters);
+            }
         }
     }
 }

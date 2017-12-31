@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Controllers;
 using WebApi.Domain.Model;
+using WebApi.Domain;
+using WebApi.Application;
 
 namespace WebApi.Controllers
 {
@@ -9,11 +11,18 @@ namespace WebApi.Controllers
     [Produces("application/json")]
     public class UsersController : ControllerBase
     {
+        private readonly IUsersService _UsersService;
+
+        public UsersController(IUsersService usersService)
+        {
+            _UsersService = usersService;
+        }
+
         // GET api/users/{id}
         [HttpGet("{id}")]
-        public async Task<User> Get(int id)
+        public Task<User> Get(string id)
         {
-            // return user by id
+            return _UsersService.GetUserById(id);
         }
 
         // POST api/users

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Application.Dto", "W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Application", "WebApi.Application\WebApi.Application.csproj", "{24BE5AAB-88D0-4422-8C69-EA3D86B3EC74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Configuration", "WebApi.configuration\WebApi.configuration.csproj", "{6CB08352-489C-4CC9-B64B-33271C584CED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.configuration", "WebApi.configuration\WebApi.configuration.csproj", "{6CB08352-489C-4CC9-B64B-33271C584CED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Domain", "WebApi.Domain\WebApi.Domain.csproj", "{89CE2038-DFEB-4189-820F-37DC95FCEEB0}"
 EndProject

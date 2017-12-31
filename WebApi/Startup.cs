@@ -1,18 +1,33 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebApi.Application;
+using WebApi.configuration;
 using WebApi.Domain;
-using WebApi.Infrastructure;
 
 namespace WebApi
 {
     public class Startup
     {
+        public static IConfigurationRoot Configuration { get; set; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appSettings.json")
+                .Build();
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IDbConnectionService, DbConnectionService>();
+            services.AddOptions();
+            services.AddAutoMapper();
+            services.Configure<AppSettings>(Configuration);
+            services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<IUsersService, UsersService>();
             services.AddMvc();
         }

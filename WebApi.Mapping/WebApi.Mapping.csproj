@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WebApi.Application.Dto\WebApi.Application.Dto.csproj" />
     <ProjectReference Include="..\WebApi.Domain.Model\WebApi.Domain.Model.csproj" />
+    <ProjectReference Include="..\WebApi.Infrastructure.Model\WebApi.Infrastructure.Model.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
