@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace WebApi.Application.Dto
 {
     public class UserDto
@@ -10,5 +11,7 @@ namespace WebApi.Application.Dto
         public string Lastname { get; set; }
 
         public string Email { get; set; }
+
+        public string Password { get; set; }
     }
 }

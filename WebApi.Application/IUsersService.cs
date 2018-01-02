@@ -1,11 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using WebApi.Domain.Model;
+﻿using System.Threading.Tasks;
+using WebApi.Application.Dto;
 
 namespace WebApi.Application
 {
     public interface IUsersService
     {
-        Task<User> GetUserById(string id);
+        Task<UserDto> GetUserById(string id);
+
+        void DeleteUserById(string id);
     }
 }

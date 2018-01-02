@@ -1,8 +1,10 @@
 ﻿using System;
 namespace WebApi.configuration
 {
-    public class ConnectionStringsSettings
+    public class ConnectionStrings
     {
-        public string DefaultSqlConnection { get; set; }
+        public string SqlConnection { get; set; }
+
+        public string RedisConnection { get; set; }
     }
 }

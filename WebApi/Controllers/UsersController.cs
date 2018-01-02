@@ -1,13 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Controllers;
 using WebApi.Domain.Model;
-using WebApi.Domain;
 using WebApi.Application;
+using WebApi.Application.Dto;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [Produces("application/json")]
     public class UsersController : ControllerBase
     {
@@ -18,32 +17,36 @@ namespace WebApi.Controllers
             _UsersService = usersService;
         }
 
-        // GET api/users/{id}
+        //// GET /users
+        //[HttpGet]
+        //public async Task<IActionResult> GetUsers()
+        //{
+        //    // Fetch all applicable users
+        //}
+
+        // GET /users/{id}
         [HttpGet("{id}")]
-        public Task<User> Get(string id)
-        {
-            return _UsersService.GetUserById(id);
-        }
+        public Task<UserDto> GetUser(string id) => _UsersService.GetUserById(id);
 
-        // POST api/users
+        // POST /users
         [HttpPost]
-        public void Post([FromBody]User user)
+        public void Post([FromBody]UserDto user)
         {
-            // Create a user based on user in post body
+            
         }
 
-        // PUT api/users/{id}
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]User user)
-        {
-            // Update a user based on user in put body
-        }
+        //// PUT /users/{id}
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]User user)
+        //{
+        //    // Update a user based on user in put body
+        //}
 
-        // DELETE api/users/{id}
+        // DELETE /users/{id}
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
-            // Delete user from db with id
+            _UsersService.DeleteUserById(id);
         }
     }
 }

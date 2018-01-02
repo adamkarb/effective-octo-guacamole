@@ -1,10 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using WebApi.Application;
+using WebApi.Application.Dto;
 using WebApi.Domain.Model;
-using WebApi.Infrastructure;
-using WebApi.Infrastructure.Model;
 
 namespace WebApi.Domain
 {
@@ -22,10 +20,15 @@ namespace WebApi.Domain
             _Mapper = mapper;
         }
 
-        public async Task<User> GetUserById(string id)
+        public async Task<UserDto> GetUserById(string id)
         {
-            var userSql = await _UsersRepository.GetUserById(id);
-            return _Mapper.Map<UserSqlModel, User>(userSql);
+            var user = await _UsersRepository.GetUserById(id);
+            return _Mapper.Map<User, UserDto>(user);
+        }
+
+        public void DeleteUserById(string id)
+        {
+            _UsersRepository.DeleteUserById(id);
         }
     }
 }

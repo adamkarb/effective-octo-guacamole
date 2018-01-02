@@ -9,6 +9,7 @@
     <ProjectReference Include="..\WebApi.Domain.Model\WebApi.Domain.Model.csproj" />
     <ProjectReference Include="..\WebApi.Application\WebApi.Application.csproj" />
     <ProjectReference Include="..\WebApi.Infrastructure.Model\WebApi.Infrastructure.Model.csproj" />
+    <ProjectReference Include="..\WebApi.configuration\WebApi.configuration.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.4" />

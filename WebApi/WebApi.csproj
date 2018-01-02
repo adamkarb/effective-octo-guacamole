@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="MiddleWare\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,5 +25,6 @@
     <ProjectReference Include="..\WebApi.Domain\WebApi.Domain.csproj" />
     <ProjectReference Include="..\WebApi.configuration\WebApi.configuration.csproj" />
     <ProjectReference Include="..\WebApi.Infrastructure.Model\WebApi.Infrastructure.Model.csproj" />
+    <ProjectReference Include="..\WebApi.Application.Dto\WebApi.Application.Dto.csproj" />
   </ItemGroup>
 </Project>
