@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace WebApi.MiddleWare
 {
-    public class PowerDmsMiddlware
+    public class PowerDmsMiddleware
     {
         private readonly RequestDelegate _next;
 
-        public PowerDmsMiddlware(RequestDelegate next)
+        public PowerDmsMiddleware(RequestDelegate next)
         {
             _next = next;
         }
@@ -22,7 +22,7 @@ namespace WebApi.MiddleWare
             var pdmsQuery = context.Request.Query["powerdms"];
             if (!string.IsNullOrWhiteSpace(pdmsQuery))
             {
-                context.Response.WriteAsync("EASTER EGG!"); 
+                return context.Response.WriteAsync("EASTER EGG!"); 
             }
             return _next(context);
         }
@@ -33,7 +33,7 @@ namespace WebApi.MiddleWare
     {
         public static IApplicationBuilder UsePowerDmsQueryChecker(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<PowerDmsMiddlware>();
+            return builder.UseMiddleware<PowerDmsMiddleware>();
         }
     }
 }

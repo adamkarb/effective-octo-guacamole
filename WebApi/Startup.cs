@@ -21,9 +21,8 @@ namespace WebApi
         {
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("appSettings.json", optional: false)
                 .AddJsonFile("appSettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables()
                 .Build();
         }
 
@@ -48,13 +47,13 @@ namespace WebApi
             }
 
             // This is same as below, just exposed via an extension method on IApplicationBuilder
-            //app.UseMiddleware<PowerDmsMiddlware>();
+            //app.UseMiddleware<PowerDmsMiddleware>();
             app.UsePowerDmsQueryChecker();
             app.UseMvc();
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("404");
+                await context.Response.WriteAsync("Oops!");
             });
         }
     }

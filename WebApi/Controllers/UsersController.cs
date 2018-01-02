@@ -17,22 +17,23 @@ namespace WebApi.Controllers
             _UsersService = usersService;
         }
 
-        //// GET /users
-        //[HttpGet]
-        //public async Task<IActionResult> GetUsers()
-        //{
-        //    // Fetch all applicable users
-        //}
-
         // GET /users/{id}
         [HttpGet("{id}")]
         public Task<UserDto> GetUser(string id) => _UsersService.GetUserById(id);
 
         // POST /users
         [HttpPost]
-        public void Post([FromBody]UserDto user)
+        public IActionResult Post([FromBody]UserDto user)
         {
-            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // save user to database
+            var savedUser = new { Id = 1 };
+
+            return Created("/user/1", savedUser);
         }
 
         //// PUT /users/{id}
